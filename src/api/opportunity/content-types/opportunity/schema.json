@@ -1,0 +1,112 @@
+{
+  "kind": "collectionType",
+  "collectionName": "opportunities",
+  "info": {
+    "singularName": "opportunity",
+    "pluralName": "opportunities",
+    "displayName": "Opportunities",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "Title": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true
+    },
+    "Description": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "blocks",
+      "required": true
+    },
+    "Company": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true
+    },
+    "Category": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "enumeration",
+      "enum": [
+        "Job",
+        "Developer Scholarship",
+        "Paid Internship",
+        "Not paid Internship",
+        "Apprenticeship",
+        "Free Certification",
+        "Course discount",
+        "Subscription discount",
+        "Device discount",
+        "Hackthon",
+        "Open-source collab"
+      ],
+      "required": true
+    },
+    "Role": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "enumeration",
+      "enum": [
+        "Coder",
+        "Desginer",
+        "Writer",
+        "Tech Supporter",
+        "Producet Manager"
+      ]
+    },
+    "URL": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "Contact": {
+      "displayName": "Contact Information",
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "contact.contact-information"
+    },
+    "expiring": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "datetime",
+      "required": true
+    }
+  }
+}

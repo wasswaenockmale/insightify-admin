@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_hero_heroes",
+  "info": {
+    "displayName": "Hero"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "blocks"
+    },
+    "Background": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "Button": {
+      "type": "string"
+    },
+    "showButton": {
+      "type": "boolean"
+    },
+    "showTitle": {
+      "type": "boolean"
+    }
+  }
+}
