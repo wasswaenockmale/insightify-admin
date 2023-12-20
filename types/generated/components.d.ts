@@ -28,11 +28,24 @@ export interface HeroHero extends Schema.Component {
   };
 }
 
+export interface StepStep extends Schema.Component {
+  collectionName: 'components_step_steps';
+  info: {
+    displayName: 'Step';
+    icon: 'grid';
+  };
+  attributes: {
+    Icon: Attribute.Media;
+    Paragraph: Attribute.String;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'contact.contact-information': ContactContactInformation;
       'hero.hero': HeroHero;
+      'step.step': StepStep;
     }
   }
 }

@@ -482,6 +482,50 @@ export interface PluginUploadFolder extends Schema.CollectionType {
   };
 }
 
+export interface PluginI18NLocale extends Schema.CollectionType {
+  collectionName: 'i18n_locale';
+  info: {
+    singularName: 'locale';
+    pluralName: 'locales';
+    collectionName: 'locales';
+    displayName: 'Locale';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    name: Attribute.String &
+      Attribute.SetMinMax<{
+        min: 1;
+        max: 50;
+      }>;
+    code: Attribute.String & Attribute.Unique;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::i18n.locale',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::i18n.locale',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginUsersPermissionsPermission
   extends Schema.CollectionType {
   collectionName: 'up_permissions';
@@ -633,50 +677,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
-export interface PluginI18NLocale extends Schema.CollectionType {
-  collectionName: 'i18n_locale';
-  info: {
-    singularName: 'locale';
-    pluralName: 'locales';
-    collectionName: 'locales';
-    displayName: 'Locale';
-    description: '';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  pluginOptions: {
-    'content-manager': {
-      visible: false;
-    };
-    'content-type-builder': {
-      visible: false;
-    };
-  };
-  attributes: {
-    name: Attribute.String &
-      Attribute.SetMinMax<{
-        min: 1;
-        max: 50;
-      }>;
-    code: Attribute.String & Attribute.Unique;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'plugin::i18n.locale',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'plugin::i18n.locale',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiAblestateLandingPageAblestateLandingPage
   extends Schema.SingleType {
   collectionName: 'ablestate_landing_pages';
@@ -705,6 +705,53 @@ export interface ApiAblestateLandingPageAblestateLandingPage
       'admin::user'
     > &
       Attribute.Private;
+  };
+}
+
+export interface ApiAppOnBoardingAppOnBoarding extends Schema.SingleType {
+  collectionName: 'app_on_boardings';
+  info: {
+    singularName: 'app-on-boarding';
+    pluralName: 'app-on-boardings';
+    displayName: 'App on boarding';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    Step: Attribute.Component<'step.step', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::app-on-boarding.app-on-boarding',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::app-on-boarding.app-on-boarding',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::app-on-boarding.app-on-boarding',
+      'oneToMany',
+      'api::app-on-boarding.app-on-boarding'
+    >;
+    locale: Attribute.String;
   };
 }
 
@@ -787,8 +834,14 @@ export interface ApiOpportunityOpportunity extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    expiring: Attribute.DateTime &
+    Expires: Attribute.DateTime &
       Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Location: Attribute.Enumeration<['Remote', 'Hybrid', 'Onsite']> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -818,6 +871,96 @@ export interface ApiOpportunityOpportunity extends Schema.CollectionType {
   };
 }
 
+export interface ApiTechTipTechTip extends Schema.CollectionType {
+  collectionName: 'tech_tips';
+  info: {
+    singularName: 'tech-tip';
+    pluralName: 'tech-tips';
+    displayName: 'Tech tips';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    Title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    details: Attribute.RichText &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Link: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Credit: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Category: Attribute.Enumeration<
+      [
+        'Interviews',
+        'Jobs',
+        'Python',
+        'JavaScript',
+        'HTML',
+        'CSS',
+        'TypeScript',
+        'JAVA',
+        'PHP',
+        'Go',
+        'Scala',
+        'TailwindCSS',
+        'BootstrapCSS',
+        'Node.js',
+        'DSA'
+      ]
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::tech-tip.tech-tip',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::tech-tip.tech-tip',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::tech-tip.tech-tip',
+      'oneToMany',
+      'api::tech-tip.tech-tip'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -830,12 +973,14 @@ declare module '@strapi/types' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
+      'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
-      'plugin::i18n.locale': PluginI18NLocale;
       'api::ablestate-landing-page.ablestate-landing-page': ApiAblestateLandingPageAblestateLandingPage;
+      'api::app-on-boarding.app-on-boarding': ApiAppOnBoardingAppOnBoarding;
       'api::opportunity.opportunity': ApiOpportunityOpportunity;
+      'api::tech-tip.tech-tip': ApiTechTipTechTip;
     }
   }
 }

@@ -1,0 +1,78 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tech_tips",
+  "info": {
+    "singularName": "tech-tip",
+    "pluralName": "tech-tips",
+    "displayName": "Tech tips"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "Title": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true
+    },
+    "details": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "richtext",
+      "required": true
+    },
+    "Link": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "Credit": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "Category": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "enumeration",
+      "enum": [
+        "Interviews",
+        "Jobs",
+        "Python",
+        "JavaScript",
+        "HTML",
+        "CSS",
+        "TypeScript",
+        "JAVA",
+        "PHP",
+        "Go",
+        "Scala",
+        "TailwindCSS",
+        "BootstrapCSS",
+        "Node.js",
+        "DSA"
+      ]
+    }
+  }
+}

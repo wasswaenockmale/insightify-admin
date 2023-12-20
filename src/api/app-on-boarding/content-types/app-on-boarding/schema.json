@@ -1,0 +1,31 @@
+{
+  "kind": "singleType",
+  "collectionName": "app_on_boardings",
+  "info": {
+    "singularName": "app-on-boarding",
+    "pluralName": "app-on-boardings",
+    "displayName": "App on boarding",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "Step": {
+      "displayName": "Step",
+      "type": "component",
+      "repeatable": true,
+      "component": "step.step",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    }
+  }
+}

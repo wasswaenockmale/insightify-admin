@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_step_steps",
+  "info": {
+    "displayName": "Step",
+    "icon": "grid"
+  },
+  "options": {},
+  "attributes": {
+    "Icon": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Paragraph": {
+      "type": "string"
+    }
+  }
+}

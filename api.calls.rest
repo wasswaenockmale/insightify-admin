@@ -1,0 +1,8 @@
+### Get opportunities
+GET https://automatic-cow-e0fb6e40e6.strapiapp.com/api/opportunities
+content-type: application/json
+Authorization: Bearer 157cd30e8c21319b1c78e2e4bedc4a82ddadfcf91545dc7fa8567d2df291b6789d1197f7bd13302bfe0da76bdcd92945dbedf404e80f4fbfa78c0af2025421a90fd6420299f8963ff0351b839a008525682c6fa5c2cab45218008a7f0a0fddc12e0aa33b8a6793c037d226544f9edfa35f3e57ec8dcc9a482ede0601ec2455b6
+
+### Tech tips
+
+GET http://localhost:1337/api/tech-tips
