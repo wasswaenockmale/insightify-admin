@@ -32,7 +32,7 @@ jobs:
           command: c
           cwd: "./"
           files: |
-            build/
+            ./
             captain-definition
           outPath: deploy.tar
 
