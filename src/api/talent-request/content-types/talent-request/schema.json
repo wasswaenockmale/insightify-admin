@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "talent_requests",
+  "info": {
+    "singularName": "talent-request",
+    "pluralName": "talent-requests",
+    "displayName": "Talent Requests",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Client": {
+      "type": "string"
+    },
+    "Email": {
+      "type": "email",
+      "required": true
+    },
+    "Phone": {
+      "type": "string"
+    },
+    "Company": {
+      "type": "string"
+    },
+    "Need": {
+      "type": "string",
+      "required": true
+    },
+    "Message": {
+      "type": "text"
+    }
+  }
+}

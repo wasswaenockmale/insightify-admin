@@ -871,6 +871,42 @@ export interface ApiOpportunityOpportunity extends Schema.CollectionType {
   };
 }
 
+export interface ApiTalentRequestTalentRequest extends Schema.CollectionType {
+  collectionName: 'talent_requests';
+  info: {
+    singularName: 'talent-request';
+    pluralName: 'talent-requests';
+    displayName: 'Talent Requests';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Client: Attribute.String;
+    Email: Attribute.Email & Attribute.Required;
+    Phone: Attribute.String;
+    Company: Attribute.String;
+    Need: Attribute.String & Attribute.Required;
+    Message: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::talent-request.talent-request',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::talent-request.talent-request',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiTechTipTechTip extends Schema.CollectionType {
   collectionName: 'tech_tips';
   info: {
@@ -980,6 +1016,7 @@ declare module '@strapi/types' {
       'api::ablestate-landing-page.ablestate-landing-page': ApiAblestateLandingPageAblestateLandingPage;
       'api::app-on-boarding.app-on-boarding': ApiAppOnBoardingAppOnBoarding;
       'api::opportunity.opportunity': ApiOpportunityOpportunity;
+      'api::talent-request.talent-request': ApiTalentRequestTalentRequest;
       'api::tech-tip.tech-tip': ApiTechTipTechTip;
     }
   }
