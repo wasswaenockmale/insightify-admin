@@ -755,6 +755,82 @@ export interface ApiAppOnBoardingAppOnBoarding extends Schema.SingleType {
   };
 }
 
+export interface ApiNotificationTokenNotificationToken
+  extends Schema.CollectionType {
+  collectionName: 'notification_tokens';
+  info: {
+    singularName: 'notification-token';
+    pluralName: 'notification-tokens';
+    displayName: 'notificationTokens';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    tokenID: Attribute.String &
+      Attribute.Required &
+      Attribute.Unique &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    tokenValue: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    deviceID: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    subscription: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.DefaultTo<true>;
+    platform: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::notification-token.notification-token',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::notification-token.notification-token',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::notification-token.notification-token',
+      'oneToMany',
+      'api::notification-token.notification-token'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiOpportunityOpportunity extends Schema.CollectionType {
   collectionName: 'opportunities';
   info: {
@@ -889,6 +965,7 @@ export interface ApiTalentRequestTalentRequest extends Schema.CollectionType {
     Company: Attribute.String;
     Need: Attribute.String & Attribute.Required;
     Message: Attribute.Text;
+    Heads: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1015,6 +1092,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::ablestate-landing-page.ablestate-landing-page': ApiAblestateLandingPageAblestateLandingPage;
       'api::app-on-boarding.app-on-boarding': ApiAppOnBoardingAppOnBoarding;
+      'api::notification-token.notification-token': ApiNotificationTokenNotificationToken;
       'api::opportunity.opportunity': ApiOpportunityOpportunity;
       'api::talent-request.talent-request': ApiTalentRequestTalentRequest;
       'api::tech-tip.tech-tip': ApiTechTipTechTip;

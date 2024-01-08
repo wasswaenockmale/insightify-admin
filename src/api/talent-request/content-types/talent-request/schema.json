@@ -31,6 +31,9 @@
     },
     "Message": {
       "type": "text"
+    },
+    "Heads": {
+      "type": "integer"
     }
   }
 }
