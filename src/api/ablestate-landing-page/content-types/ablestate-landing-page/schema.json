@@ -4,7 +4,8 @@
   "info": {
     "singularName": "ablestate-landing-page",
     "pluralName": "ablestate-landing-pages",
-    "displayName": "Ablestate-landing-page"
+    "displayName": "Ablestate landing page",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true

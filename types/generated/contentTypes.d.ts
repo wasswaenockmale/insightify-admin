@@ -683,7 +683,8 @@ export interface ApiAblestateLandingPageAblestateLandingPage
   info: {
     singularName: 'ablestate-landing-page';
     pluralName: 'ablestate-landing-pages';
-    displayName: 'Ablestate-landing-page';
+    displayName: 'Ablestate landing page';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -761,7 +762,8 @@ export interface ApiNotificationTokenNotificationToken
   info: {
     singularName: 'notification-token';
     pluralName: 'notification-tokens';
-    displayName: 'notificationTokens';
+    displayName: 'Notification Tokens';
+    description: '';
   };
   options: {
     draftAndPublish: false;
@@ -947,6 +949,72 @@ export interface ApiOpportunityOpportunity extends Schema.CollectionType {
   };
 }
 
+export interface ApiSuggestionSuggestion extends Schema.CollectionType {
+  collectionName: 'suggestions';
+  info: {
+    singularName: 'suggestion';
+    pluralName: 'suggestions';
+    displayName: 'Suggestions';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    rating: Attribute.Decimal &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.SetMinMax<{
+        min: 0;
+        max: 5;
+      }> &
+      Attribute.DefaultTo<0>;
+    improvements: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    suggestion: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::suggestion.suggestion',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::suggestion.suggestion',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::suggestion.suggestion',
+      'oneToMany',
+      'api::suggestion.suggestion'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiTalentRequestTalentRequest extends Schema.CollectionType {
   collectionName: 'talent_requests';
   info: {
@@ -1094,6 +1162,7 @@ declare module '@strapi/types' {
       'api::app-on-boarding.app-on-boarding': ApiAppOnBoardingAppOnBoarding;
       'api::notification-token.notification-token': ApiNotificationTokenNotificationToken;
       'api::opportunity.opportunity': ApiOpportunityOpportunity;
+      'api::suggestion.suggestion': ApiSuggestionSuggestion;
       'api::talent-request.talent-request': ApiTalentRequestTalentRequest;
       'api::tech-tip.tech-tip': ApiTechTipTechTip;
     }

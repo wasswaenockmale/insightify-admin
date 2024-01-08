@@ -4,7 +4,8 @@
   "info": {
     "singularName": "notification-token",
     "pluralName": "notification-tokens",
-    "displayName": "notificationTokens"
+    "displayName": "Notification Tokens",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
