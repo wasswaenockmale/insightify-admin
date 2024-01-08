@@ -5,8 +5,11 @@ module.exports = [
     name: "strapi::cors",
     config: {
       enabled: true,
-      header: "*",
-      origin: ["https://ablestate.africa"],
+      origin: [
+        "https://insightify-admin.ablestate.cloud",
+        "https://ablestate.africa",
+        "https://www.ablestate.africa",
+      ],
     },
   },
   "strapi::poweredBy",
