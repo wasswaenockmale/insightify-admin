@@ -106,7 +106,7 @@
         }
       },
       "type": "datetime",
-      "required": true
+      "required": false
     },
     "Location": {
       "pluginOptions": {

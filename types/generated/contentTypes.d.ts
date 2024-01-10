@@ -913,7 +913,6 @@ export interface ApiOpportunityOpportunity extends Schema.CollectionType {
         };
       }>;
     Expires: Attribute.DateTime &
-      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;

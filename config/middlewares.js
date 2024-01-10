@@ -6,6 +6,7 @@ module.exports = [
     config: {
       enabled: true,
       origin: [
+        "http://localhost:1336",
         "https://insightify-admin.ablestate.cloud",
         "https://ablestate.africa",
         "https://www.ablestate.africa",
