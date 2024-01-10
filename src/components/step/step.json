@@ -2,22 +2,29 @@
   "collectionName": "components_step_steps",
   "info": {
     "displayName": "Step",
-    "icon": "grid"
+    "icon": "grid",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "Icon": {
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
-    "Paragraph": {
-      "type": "string"
+    "details": {
+      "type": "string",
+      "maxLength": 65
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 15
     }
   }
 }

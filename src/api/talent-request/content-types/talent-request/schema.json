@@ -12,27 +12,27 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Client": {
+    "client": {
       "type": "string"
     },
-    "Email": {
+    "email": {
       "type": "email",
       "required": true
     },
-    "Phone": {
+    "phone": {
       "type": "string"
     },
-    "Company": {
+    "company": {
       "type": "string"
     },
-    "Need": {
+    "need": {
       "type": "string",
       "required": true
     },
-    "Message": {
+    "message": {
       "type": "text"
     },
-    "Heads": {
+    "heads": {
       "type": "integer"
     }
   }

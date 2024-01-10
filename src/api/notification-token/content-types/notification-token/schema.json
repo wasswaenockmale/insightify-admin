@@ -62,7 +62,7 @@
       },
       "type": "string"
     },
-    "SerialNumber": {
+    "serialNumber": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -70,7 +70,7 @@
       },
       "type": "string"
     },
-    "Model": {
+    "model": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -78,7 +78,7 @@
       },
       "type": "string"
     },
-    "Manafacturer": {
+    "manafacturer": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -86,7 +86,7 @@
       },
       "type": "string"
     },
-    "ReleaseDate": {
+    "releaseDate": {
       "pluginOptions": {
         "i18n": {
           "localized": true

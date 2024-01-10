@@ -677,38 +677,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
-export interface ApiAblestateLandingPageAblestateLandingPage
-  extends Schema.SingleType {
-  collectionName: 'ablestate_landing_pages';
-  info: {
-    singularName: 'ablestate-landing-page';
-    pluralName: 'ablestate-landing-pages';
-    displayName: 'Ablestate landing page';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Hero: Attribute.Component<'hero.hero'>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::ablestate-landing-page.ablestate-landing-page',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::ablestate-landing-page.ablestate-landing-page',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiAppOnBoardingAppOnBoarding extends Schema.SingleType {
   collectionName: 'app_on_boardings';
   info: {
@@ -810,25 +778,25 @@ export interface ApiNotificationTokenNotificationToken
           localized: true;
         };
       }>;
-    SerialNumber: Attribute.String &
+    serialNumber: Attribute.String &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    Model: Attribute.String &
+    model: Attribute.String &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    Manafacturer: Attribute.String &
+    manafacturer: Attribute.String &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    ReleaseDate: Attribute.Date &
+    releaseDate: Attribute.Date &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1050,13 +1018,13 @@ export interface ApiTalentRequestTalentRequest extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    Client: Attribute.String;
-    Email: Attribute.Email & Attribute.Required;
-    Phone: Attribute.String;
-    Company: Attribute.String;
-    Need: Attribute.String & Attribute.Required;
-    Message: Attribute.Text;
-    Heads: Attribute.Integer;
+    client: Attribute.String;
+    email: Attribute.Email & Attribute.Required;
+    phone: Attribute.String;
+    company: Attribute.String;
+    need: Attribute.String & Attribute.Required;
+    message: Attribute.Text;
+    heads: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1181,7 +1149,6 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
-      'api::ablestate-landing-page.ablestate-landing-page': ApiAblestateLandingPageAblestateLandingPage;
       'api::app-on-boarding.app-on-boarding': ApiAppOnBoardingAppOnBoarding;
       'api::notification-token.notification-token': ApiNotificationTokenNotificationToken;
       'api::opportunity.opportunity': ApiOpportunityOpportunity;

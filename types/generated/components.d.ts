@@ -17,14 +17,22 @@ export interface HeroHero extends Schema.Component {
   collectionName: 'components_hero_heroes';
   info: {
     displayName: 'Hero';
+    description: '';
   };
   attributes: {
-    Title: Attribute.String;
-    Description: Attribute.Blocks;
-    Background: Attribute.Media;
-    Button: Attribute.String;
+    title: Attribute.String;
+    description: Attribute.Blocks;
+    background: Attribute.Media;
+    button: Attribute.String;
     showButton: Attribute.Boolean;
     showTitle: Attribute.Boolean;
+    isHeroSection: Attribute.Boolean & Attribute.DefaultTo<false>;
+    order: Attribute.Integer &
+      Attribute.Required &
+      Attribute.Unique &
+      Attribute.SetMinMax<{
+        min: 0;
+      }>;
   };
 }
 
@@ -33,10 +41,18 @@ export interface StepStep extends Schema.Component {
   info: {
     displayName: 'Step';
     icon: 'grid';
+    description: '';
   };
   attributes: {
-    Icon: Attribute.Media;
-    Paragraph: Attribute.String;
+    icon: Attribute.Media;
+    details: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 65;
+      }>;
+    title: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 15;
+      }>;
   };
 }
 

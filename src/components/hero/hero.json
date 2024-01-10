@@ -1,27 +1,29 @@
 {
   "collectionName": "components_hero_heroes",
   "info": {
-    "displayName": "Hero"
+    "displayName": "Hero",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "Title": {
+    "title": {
       "type": "string"
     },
-    "Description": {
+    "description": {
       "type": "blocks"
     },
-    "Background": {
+    "background": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     },
-    "Button": {
+    "button": {
       "type": "string"
     },
     "showButton": {
@@ -29,6 +31,16 @@
     },
     "showTitle": {
       "type": "boolean"
+    },
+    "isHeroSection": {
+      "type": "boolean",
+      "default": false
+    },
+    "order": {
+      "type": "integer",
+      "required": true,
+      "unique": true,
+      "min": 0
     }
   }
 }
