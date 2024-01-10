@@ -22,7 +22,7 @@ export interface HeroHero extends Schema.Component {
   attributes: {
     title: Attribute.String;
     description: Attribute.Blocks;
-    background: Attribute.Media;
+    backgroundImage: Attribute.Media;
     button: Attribute.String;
     showButton: Attribute.Boolean;
     showTitle: Attribute.Boolean;
@@ -33,6 +33,8 @@ export interface HeroHero extends Schema.Component {
       Attribute.SetMinMax<{
         min: 0;
       }>;
+    buttonType: Attribute.Enumeration<['Submit', 'Button', 'Href Link']>;
+    linkURL: Attribute.String;
   };
 }
 

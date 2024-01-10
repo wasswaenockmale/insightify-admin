@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "ablestate_home_pages",
+  "info": {
+    "singularName": "ablestate-home-page",
+    "pluralName": "ablestate-home-pages",
+    "displayName": "Ablestate Home page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "section": {
+      "type": "component",
+      "repeatable": true,
+      "component": "hero.hero"
+    }
+  }
+}

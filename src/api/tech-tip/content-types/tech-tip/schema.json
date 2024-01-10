@@ -73,6 +73,12 @@
         "Node.js",
         "DSA"
       ]
+    },
+    "comments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::comment.comment",
+      "mappedBy": "techTip"
     }
   }
 }

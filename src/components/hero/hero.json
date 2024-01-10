@@ -12,9 +12,9 @@
     "description": {
       "type": "blocks"
     },
-    "background": {
+    "backgroundImage": {
       "type": "media",
-      "multiple": true,
+      "multiple": false,
       "required": false,
       "allowedTypes": [
         "images",
@@ -41,6 +41,17 @@
       "required": true,
       "unique": true,
       "min": 0
+    },
+    "buttonType": {
+      "type": "enumeration",
+      "enum": [
+        "Submit",
+        "Button",
+        "Href Link"
+      ]
+    },
+    "linkURL": {
+      "type": "string"
     }
   }
 }

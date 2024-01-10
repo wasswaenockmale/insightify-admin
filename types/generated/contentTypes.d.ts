@@ -677,6 +677,38 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiAblestateHomePageAblestateHomePage
+  extends Schema.SingleType {
+  collectionName: 'ablestate_home_pages';
+  info: {
+    singularName: 'ablestate-home-page';
+    pluralName: 'ablestate-home-pages';
+    displayName: 'Ablestate Home page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    section: Attribute.Component<'hero.hero', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::ablestate-home-page.ablestate-home-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::ablestate-home-page.ablestate-home-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiAppOnBoardingAppOnBoarding extends Schema.SingleType {
   collectionName: 'app_on_boardings';
   info: {
@@ -721,6 +753,52 @@ export interface ApiAppOnBoardingAppOnBoarding extends Schema.SingleType {
       'api::app-on-boarding.app-on-boarding'
     >;
     locale: Attribute.String;
+  };
+}
+
+export interface ApiCommentComment extends Schema.CollectionType {
+  collectionName: 'comments';
+  info: {
+    singularName: 'comment';
+    pluralName: 'comments';
+    displayName: 'Comments';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    opportunity: Attribute.Relation<
+      'api::comment.comment',
+      'manyToOne',
+      'api::opportunity.opportunity'
+    >;
+    techTip: Attribute.Relation<
+      'api::comment.comment',
+      'manyToOne',
+      'api::tech-tip.tech-tip'
+    >;
+    author: Attribute.Relation<
+      'api::comment.comment',
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
+    comment: Attribute.Text & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::comment.comment',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::comment.comment',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
   };
 }
 
@@ -916,6 +994,11 @@ export interface ApiOpportunityOpportunity extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    comments: Attribute.Relation<
+      'api::opportunity.opportunity',
+      'oneToMany',
+      'api::comment.comment'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1109,6 +1192,11 @@ export interface ApiTechTipTechTip extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    comments: Attribute.Relation<
+      'api::tech-tip.tech-tip',
+      'oneToMany',
+      'api::comment.comment'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1149,7 +1237,9 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::ablestate-home-page.ablestate-home-page': ApiAblestateHomePageAblestateHomePage;
       'api::app-on-boarding.app-on-boarding': ApiAppOnBoardingAppOnBoarding;
+      'api::comment.comment': ApiCommentComment;
       'api::notification-token.notification-token': ApiNotificationTokenNotificationToken;
       'api::opportunity.opportunity': ApiOpportunityOpportunity;
       'api::suggestion.suggestion': ApiSuggestionSuggestion;
