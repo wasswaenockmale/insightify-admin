@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sent_notifications",
+  "info": {
+    "singularName": "sent-notification",
+    "pluralName": "sent-notifications",
+    "displayName": "Sent Notifications"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "message": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

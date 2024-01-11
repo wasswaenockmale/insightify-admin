@@ -1023,6 +1023,37 @@ export interface ApiOpportunityOpportunity extends Schema.CollectionType {
   };
 }
 
+export interface ApiSentNotificationSentNotification
+  extends Schema.CollectionType {
+  collectionName: 'sent_notifications';
+  info: {
+    singularName: 'sent-notification';
+    pluralName: 'sent-notifications';
+    displayName: 'Sent Notifications';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    message: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::sent-notification.sent-notification',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::sent-notification.sent-notification',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiSuggestionSuggestion extends Schema.CollectionType {
   collectionName: 'suggestions';
   info: {
@@ -1242,6 +1273,7 @@ declare module '@strapi/types' {
       'api::comment.comment': ApiCommentComment;
       'api::notification-token.notification-token': ApiNotificationTokenNotificationToken;
       'api::opportunity.opportunity': ApiOpportunityOpportunity;
+      'api::sent-notification.sent-notification': ApiSentNotificationSentNotification;
       'api::suggestion.suggestion': ApiSuggestionSuggestion;
       'api::talent-request.talent-request': ApiTalentRequestTalentRequest;
       'api::tech-tip.tech-tip': ApiTechTipTechTip;
