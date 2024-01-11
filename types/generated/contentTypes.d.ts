@@ -768,22 +768,14 @@ export interface ApiCommentComment extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    opportunity: Attribute.Relation<
-      'api::comment.comment',
-      'manyToOne',
-      'api::opportunity.opportunity'
-    >;
-    techTip: Attribute.Relation<
-      'api::comment.comment',
-      'manyToOne',
-      'api::tech-tip.tech-tip'
-    >;
     author: Attribute.Relation<
       'api::comment.comment',
       'oneToOne',
       'plugin::users-permissions.user'
     >;
     comment: Attribute.Text & Attribute.Required;
+    resourceId: Attribute.Integer & Attribute.Required;
+    type: Attribute.Enumeration<['Opportunity', 'Tech Tip']>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -994,11 +986,6 @@ export interface ApiOpportunityOpportunity extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    comments: Attribute.Relation<
-      'api::opportunity.opportunity',
-      'oneToMany',
-      'api::comment.comment'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1223,11 +1210,6 @@ export interface ApiTechTipTechTip extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    comments: Attribute.Relation<
-      'api::tech-tip.tech-tip',
-      'oneToMany',
-      'api::comment.comment'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

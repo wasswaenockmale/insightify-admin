@@ -12,18 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "opportunity": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::opportunity.opportunity",
-      "inversedBy": "comments"
-    },
-    "techTip": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::tech-tip.tech-tip",
-      "inversedBy": "comments"
-    },
     "author": {
       "type": "relation",
       "relation": "oneToOne",
@@ -32,6 +20,17 @@
     "comment": {
       "type": "text",
       "required": true
+    },
+    "resourceId": {
+      "type": "integer",
+      "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Opportunity",
+        "Tech Tip"
+      ]
     }
   }
 }
