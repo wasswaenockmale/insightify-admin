@@ -1017,12 +1017,13 @@ export interface ApiSentNotificationSentNotification
     singularName: 'sent-notification';
     pluralName: 'sent-notifications';
     displayName: 'Sent Notifications';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    message: Attribute.String & Attribute.Required;
+    messageData: Attribute.JSON;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

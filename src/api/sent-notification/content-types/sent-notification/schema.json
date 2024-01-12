@@ -4,16 +4,16 @@
   "info": {
     "singularName": "sent-notification",
     "pluralName": "sent-notifications",
-    "displayName": "Sent Notifications"
+    "displayName": "Sent Notifications",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "message": {
-      "type": "string",
-      "required": true
+    "messageData": {
+      "type": "json"
     }
   }
 }
